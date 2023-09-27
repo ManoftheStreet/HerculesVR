@@ -740,9 +740,9 @@ RectTransform:
   - {fileID: 6430791141923057000}
   m_Father: {fileID: 1123570112688746789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 55, y: -40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8725670536828181393
@@ -5574,7 +5574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6002321577958155396
 Transform:
   m_ObjectHideFlags: 0
@@ -5991,7 +5991,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7380195779438253929}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b699a2c3ba51fa46899cde6337516f9, type: 3}
   m_Name: 
@@ -6324,7 +6324,6 @@ GameObject:
   - component: {fileID: 8848534342340266828}
   - component: {fileID: 6728757575480902100}
   - component: {fileID: 5939723552220856627}
-  - component: {fileID: 2150823533885766741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6413,25 +6412,6 @@ MonoBehaviour:
   bodyTransform: {fileID: 0}
   leftHandTransform: {fileID: 255151510858262838}
   rightHandTransform: {fileID: 6426165524146550308}
---- !u!114 &2150823533885766741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8204960530048138873}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logLevel: 3
-  ignoreGlobalLogLevel: 0
-  recorderInUse: {fileID: 0}
-  speakerInUse: {fileID: 4145756931688854440}
-  AutoCreateRecorderIfNotFound: 1
-  UsePrimaryRecorder: 1
-  SetupDebugSpeaker: 0
 --- !u!1 &8265033395203621894
 GameObject:
   m_ObjectHideFlags: 0
@@ -6571,7 +6551,6 @@ GameObject:
   - component: {fileID: 7679668997722694035}
   - component: {fileID: 8657662116828418923}
   - component: {fileID: 5034011491455818774}
-  - component: {fileID: 9084969370501217888}
   m_Layer: 0
   m_Name: AvatarUI
   m_TagString: Untagged
@@ -6610,7 +6589,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2028511930384328676}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6682,21 +6661,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
---- !u!114 &9084969370501217888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8347704471805762880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3dcdba97a2b3f449be11b9e43605a8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  micImage: {fileID: 1231767655926826252}
-  speakerImage: {fileID: 4949766607781291989}
-  photonVoiceView: {fileID: 2150823533885766741}
 --- !u!1 &8380646424712009322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7242,7 +7206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4208643872894951870
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [System.Serializable]
 public class MapTransforms
@@ -18,7 +19,7 @@ public class MapTransforms
     }
 }
 
-public class AvatarController : MonoBehaviour
+public class AvatarController : MonoBehaviourPunCallbacks
 {
     [SerializeField] private MapTransforms head;
     [SerializeField] private MapTransforms leftHand;
@@ -30,12 +31,16 @@ public class AvatarController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = ikHead.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(ikHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+        if (photonView.IsMine)
+        {
+            transform.position = ikHead.position + headBodyOffset;
+            transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(ikHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
 
-        head.VRMapping();
-        leftHand.VRMapping();
-        rightHand.VRMapping();
+            head.VRMapping();
+            leftHand.VRMapping();
+            rightHand.VRMapping();
+        }
+     
     }
 
 }
