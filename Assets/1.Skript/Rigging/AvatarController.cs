@@ -31,15 +31,15 @@ public class AvatarController : MonoBehaviourPunCallbacks
 
     private void LateUpdate()
     {
-        if (photonView.IsMine)
-        {
+       /* if (photonView.IsMine)
+        {*/
             transform.position = ikHead.position + headBodyOffset;
             transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(ikHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
 
             head.VRMapping();
             leftHand.VRMapping();
             rightHand.VRMapping();
-        }
+        //}
      
     }
 

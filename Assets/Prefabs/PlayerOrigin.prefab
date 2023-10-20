@@ -2286,7 +2286,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6358247722834088527}
-  - component: {fileID: 7426693646453163047}
   m_Layer: 0
   m_Name: LeftHandParent
   m_TagString: Untagged
@@ -2311,22 +2310,6 @@ Transform:
   - {fileID: 2402433756372530663}
   m_Father: {fileID: 847714002303917499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7426693646453163047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3765081951758119956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b75f409ca6a51754f8fe4cf3b3967e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIController: {fileID: 8273048876017556536}
-  BaseController: {fileID: 6680035431929840934}
-  inputActionReference_UISwitcher: {fileID: 8700945198573277695, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  UICanvasGameobject: {fileID: 0}
 --- !u!1 &4077319635019315803
 GameObject:
   m_ObjectHideFlags: 0

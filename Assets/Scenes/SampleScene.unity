@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1216846567}
   m_OriginBaseGameObject: {fileID: 874301645}
   m_CameraFloorOffsetObject: {fileID: 2092297969}
-  m_RequestedTrackingOriginMode: 1
+  m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.03
 --- !u!4 &874301648
 Transform:
@@ -3404,7 +3404,7 @@ MonoBehaviour:
     trackingRotationOffset: {x: 90, y: 0, z: 0}
   turnSmoothness: 0
   ikHead: {fileID: 591994344}
-  headBodyOffset: {x: 0, y: -1.62, z: 0}
+  headBodyOffset: {x: 0, y: -1.65, z: 0}
 --- !u!95 &1396508686 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95963342159996030, guid: 8875bf7e954e6394fa0dec7602dd78d6, type: 3}
@@ -3609,8 +3609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c6da23fba6f4047adedd2f6678ab80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gripAction: {fileID: 15759602096507913, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  pinchAction: {fileID: -7813013294023911475, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripAction: {fileID: 5667446173830999989, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  pinchAction: {fileID: -8306000708137014372, guid: b72ab2a46d9094be38774d023beb4d34, type: 3}
 --- !u!95 &1842118565
 Animator:
   serializedVersion: 5
@@ -3804,8 +3804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c6da23fba6f4047adedd2f6678ab80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gripAction: {fileID: -3742484312079769484, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  pinchAction: {fileID: -2706128282752906596, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  gripAction: {fileID: 5667446173830999989, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  pinchAction: {fileID: -8306000708137014372, guid: b72ab2a46d9094be38774d023beb4d34, type: 3}
 --- !u!95 &1977629478
 Animator:
   serializedVersion: 5

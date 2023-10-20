@@ -11,12 +11,12 @@ public class HandAnimation : MonoBehaviour
     private void OnEnable()
     {
         //grip
-        gripAction.action.performed += Gripping;
+        /*gripAction.action.performed += Gripping;
         gripAction.action.canceled += GripRelease;
 
         //pinch
         pinchAction.action.performed += Pinching;
-        pinchAction.action.canceled += PinchRelease;
+        pinchAction.action.canceled += PinchRelease;*/
     }
 
     private void Awake() => animator = GetComponent<Animator>();
