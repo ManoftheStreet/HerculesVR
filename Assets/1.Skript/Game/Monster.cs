@@ -6,14 +6,13 @@ using UnityEngine.InputSystem.Processors;
 public class Monster : MonoBehaviour
 {
     public float _hp = 100;
-    Rigidbody rb;
-    MeshCollider meshCol;
+    BoxCollider meshCol;
     Animator anim;
+    bool isDamaged = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        meshCol = rb.GetComponent<MeshCollider>();
+        meshCol = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
         
     }
@@ -23,19 +22,32 @@ public class Monster : MonoBehaviour
 
     }
 
+    public void SetDamageFlag()
+    {
+        isDamaged = true;
+    }
+
+    public void ResetDamageFlag()
+    {
+        isDamaged = false;
+    }
+
     public void TakeDamage(float damage)
     {
+        if (!isDamaged) return;
+
         _hp -= damage;
         Debug.Log($"남은체력{_hp}");
 
         if(_hp <= 0)
         {
-            anim.SetBool("isDead", true);
+            Die();
         }
+        ResetDamageFlag();
     }
 
     public void Die()
     {
-
+        anim.SetBool("isDead", true);
     }
 }

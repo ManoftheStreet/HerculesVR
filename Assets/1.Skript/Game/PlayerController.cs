@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Attack();
-        Debug.DrawRay(transform.position, transform.forward * 100f, Color.red);
+        //Debug.DrawRay(transform.position, transform.forward * 100f, Color.red);
     }
 
     public void Attack()
@@ -53,14 +53,30 @@ public class PlayerController : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == layer)
+        Debug.Log($"{other} in");
+        if(other.tag == "Monster")
         {
             Monster monster = other.gameObject.GetComponent<Monster>();
 
             if (monster != null) // Monster 컴포넌트가 있는지 확인
             {
+                monster.SetDamageFlag();
                 monster.TakeDamage(adjustedDamage);
-                Debug.Log("Trigger Entered!");
+                Debug.Log("monster Entered!");
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        Debug.Log($"{other} out");
+        if (other.tag == "Monster")
+        {
+            Monster monster = other.gameObject.GetComponent<Monster>();
+
+            if (monster != null)  // Monster 컴포넌트가 있으면
+            {
+                monster.ResetDamageFlag();  // 데미지 플래그를 재설정합니다.
             }
         }
     }
