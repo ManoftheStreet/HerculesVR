@@ -31,7 +31,7 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
-        //ChaseTarget();
+        ChaseTarget();
     }
 
     public void ChaseTarget()
