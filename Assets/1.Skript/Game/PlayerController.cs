@@ -5,15 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public LayerMask layer;
+/*    public LayerMask layer;
     public float baseDamage = 10f; // 기본 데미지
     public float distanceMultiplier = 2f; // 거리에 따른 데미지 배율
-    public AudioClip audioClip;
 
-
-    AudioSource audioSource;
-    ParticleSystem paticle;
-    //float movedDistance = 0f;
     float adjustedDamage = 30f;
 
 
@@ -22,8 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        paticle = GetComponent<ParticleSystem>();
+
     }
 
     void Update()
@@ -35,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public void Attack()
     {
        
-        /*RaycastHit hit;
+        *//*RaycastHit hit;
 
         movedDistance = (transform.position - prevPos).magnitude; // 움직인 거리
         adjustedDamage = baseDamage + movedDistance * distanceMultiplier; // 조정된 데미지
@@ -55,43 +49,34 @@ public class PlayerController : MonoBehaviour
             *//*}*//*
         }
 
-        prevPos = transform.position;*/
+        prevPos = transform.position;*//*
     }
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log($"{other} in");
         if(other.tag == "Monster")
         {
-            MonsterHit(other);
+           HitMonster(other);
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
         Debug.Log($"{other} out");
-        if (other.tag == "Monster")
-        {
-            Monster monster = other.gameObject.GetComponent<Monster>();
 
-            if (monster != null)  // Monster 컴포넌트가 있으면
-            {
-                monster.ResetDamageFlag();  // 데미지 플래그를 재설정합니다.
-            }
-        }
     }
 
-    public void MonsterHit(Collider other)
+    public void HitMonster(Collider other)
     {
+        
         Monster monster = other.gameObject.GetComponent<Monster>();
 
         if (monster != null) // Monster 컴포넌트가 있는지 확인
         {
-            monster.SetDamageFlag();
-            monster.TakeDamage(adjustedDamage);
+            //monster.SetDamageFlag();
+            monster.TakeDamage(adjustedDamage , other);
             Debug.Log("monster Entered!");
-            audioSource.pitch = 1.3f;
-            audioSource.PlayOneShot(audioClip);
-            paticle.Play();
         }
     }
+*/
 }
