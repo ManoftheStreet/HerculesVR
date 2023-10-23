@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     public LayerMask layer;
     public float baseDamage = 10f; // 기본 데미지
     public float distanceMultiplier = 2f; // 거리에 따른 데미지 배율
+    public AudioClip audioClip;
+
+
+    AudioSource audioSource;
+    ParticleSystem paticle;
     //float movedDistance = 0f;
     float adjustedDamage = 30f;
 
@@ -17,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        paticle = GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -56,14 +62,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"{other} in");
         if(other.tag == "Monster")
         {
-            Monster monster = other.gameObject.GetComponent<Monster>();
-
-            if (monster != null) // Monster 컴포넌트가 있는지 확인
-            {
-                monster.SetDamageFlag();
-                monster.TakeDamage(adjustedDamage);
-                Debug.Log("monster Entered!");
-            }
+            MonsterHit(other);
         }
     }
 
@@ -78,6 +77,21 @@ public class PlayerController : MonoBehaviour
             {
                 monster.ResetDamageFlag();  // 데미지 플래그를 재설정합니다.
             }
+        }
+    }
+
+    public void MonsterHit(Collider other)
+    {
+        Monster monster = other.gameObject.GetComponent<Monster>();
+
+        if (monster != null) // Monster 컴포넌트가 있는지 확인
+        {
+            monster.SetDamageFlag();
+            monster.TakeDamage(adjustedDamage);
+            Debug.Log("monster Entered!");
+            audioSource.pitch = 1.3f;
+            audioSource.PlayOneShot(audioClip);
+            paticle.Play();
         }
     }
 }
