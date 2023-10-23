@@ -1,15 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.Processors;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
+    public Transform target;
+    
     public float _hp = 100;
     CapsuleCollider bodyCol;
     SphereCollider headCol;
     Animator anim;
-    bool isDamaged = true;
+    bool isDamaged = false;
+    bool isDead = false;
+    NavMeshAgent agent;
 
     public AudioClip hitAudio;
     AudioSource audioSource;
@@ -22,13 +26,27 @@ public class Monster : MonoBehaviour
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         hitPaticle = GetComponent<ParticleSystem>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-
+        //ChaseTarget();
     }
 
+    public void ChaseTarget()
+    {
+        if (target == null) return;
+
+        if (_hp > 0 && !isDamaged)
+        {
+            agent.destination = target.position;
+            anim.SetBool("isRunning", true);
+        }
+        
+    }
+
+    #region Hit
     public void SetDamageFlag()
     {
         isDamaged = true;
@@ -39,9 +57,8 @@ public class Monster : MonoBehaviour
         isDamaged = false;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Collider hitBox)
     {
-        if (!isDamaged) return;
 
         _hp -= damage;
         HitEffect();
@@ -51,14 +68,20 @@ public class Monster : MonoBehaviour
         {
             Die();
         }
-        ResetDamageFlag();
-        StartCoroutine(ResetDamageFlagCoroutine());
+        SetDamageFlag();
+        hitBox.enabled = false;
+        StartCoroutine(ResetDamageFlagCoroutine(hitBox));
 
     }
 
     public void Die()
     {
-        anim.SetBool("isDead", true);
+        if (!isDead)
+        {
+            anim.SetTrigger("isDead");
+            isDead = true;
+        }
+        
     }
 
     public void HitEffect()
@@ -68,9 +91,11 @@ public class Monster : MonoBehaviour
         hitPaticle.Play();
     }
 
-    IEnumerator ResetDamageFlagCoroutine()
+    IEnumerator ResetDamageFlagCoroutine(Collider hitBox)
     {
-        yield return new WaitForSeconds(1.0f);
-        SetDamageFlag();
+        yield return new WaitForSeconds(1.5f);
+        hitBox.enabled = true;
+        ResetDamageFlag();
     }
+    #endregion
 }

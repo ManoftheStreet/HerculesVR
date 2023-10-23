@@ -35,7 +35,6 @@ public class WeaponController : MonoBehaviour
        
         if (other.tag == "Monster")
         {
-            Haptic();
             HitMonster(other);
         }
     }
@@ -52,7 +51,8 @@ public class WeaponController : MonoBehaviour
 
         if (monster != null) // Monster 컴포넌트가 있는지 확인
         {
-            monster.TakeDamage(adjustedDamage);
+            monster.TakeDamage(adjustedDamage, other);
+            Haptic();
             Debug.Log("monster Entered!");
         }
         else
@@ -61,6 +61,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    #region Haptic
     public void Haptic()
     {
         foreach (Transform child in transform)
@@ -109,6 +110,6 @@ public class WeaponController : MonoBehaviour
 
         return new UnityEngine.XR.InputDevice();  // 유효하지 않은 디바이스를 반환
     }
+    #endregion
 
-    
 }
