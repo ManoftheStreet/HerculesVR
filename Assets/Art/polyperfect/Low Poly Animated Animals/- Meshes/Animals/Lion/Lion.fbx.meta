@@ -1,193 +1,557 @@
 fileFormatVersion: 2
 guid: cc9303d72f132fa4192dd1a1b144384e
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Ankle_L
-    100002: Ankle_R
-    100004: Chest_M
-    100006: DeformationSystem
-    100008: Ear1_L
-    100010: Ear1_R
-    100012: Ear2_L
-    100014: Ear2_R
-    100016: Ear3_L
-    100018: Ear3_R
-    100020: Elbow_L
-    100022: Elbow_R
-    100024: Eye_L
-    100026: Eye_R
-    100028: EyeEnd_L
-    100030: EyeEnd_R
-    100032: Fingers1_L
-    100034: Fingers1_R
-    100036: Fingers2_L
-    100038: Fingers2_R
-    100040: Geometry
-    100042: Head_M
-    100044: HeadEnd_M
-    100046: Hip_L
-    100048: Hip_R
-    100050: IndexFinger1_L
-    100052: IndexFinger1_R
-    100054: IndexFinger2_L
-    100056: IndexFinger2_R
-    100058: IndexToe1_L
-    100060: IndexToe1_R
-    100062: IndexToe2_L
-    100064: IndexToe2_R
-    100066: Jaw_M
-    100068: JawEnd_M
-    100070: Knee_L
-    100072: Knee_R
-    100074: lion
-    100076: //RootNode
-    100078: Main
-    100080: MiddleFinger1_L
-    100082: MiddleFinger1_R
-    100084: MiddleFinger2_L
-    100086: MiddleFinger2_R
-    100088: MiddleToe1_L
-    100090: MiddleToe1_R
-    100092: MiddleToe2_L
-    100094: MiddleToe2_R
-    100096: Neck_M
-    100098: PinkyFinger1_L
-    100100: PinkyFinger1_R
-    100102: PinkyFinger2_L
-    100104: PinkyFinger2_R
-    100106: PinkyToe1_L
-    100108: PinkyToe1_R
-    100110: PinkyToe2_L
-    100112: PinkyToe2_R
-    100114: RingFinger1_L
-    100116: RingFinger1_R
-    100118: RingFinger2_L
-    100120: RingFinger2_R
-    100122: RingToe1_L
-    100124: RingToe1_R
-    100126: RingToe2_L
-    100128: RingToe2_R
-    100130: Root_M
-    100132: Scapula_L
-    100134: Scapula_R
-    100136: Shoulder_L
-    100138: Shoulder_R
-    100140: Spine1_M
-    100142: Tail0_M
-    100144: Tail1_M
-    100146: Tail2_M
-    100148: Tail3_M
-    100150: Tail4_M
-    100152: Tail5_M
-    100154: Tail6_M
-    100156: Toes1_L
-    100158: Toes1_R
-    100160: Toes2_L
-    100162: Toes2_R
-    100164: Wrist_L
-    100166: Wrist_R
-    400000: Ankle_L
-    400002: Ankle_R
-    400004: Chest_M
-    400006: DeformationSystem
-    400008: Ear1_L
-    400010: Ear1_R
-    400012: Ear2_L
-    400014: Ear2_R
-    400016: Ear3_L
-    400018: Ear3_R
-    400020: Elbow_L
-    400022: Elbow_R
-    400024: Eye_L
-    400026: Eye_R
-    400028: EyeEnd_L
-    400030: EyeEnd_R
-    400032: Fingers1_L
-    400034: Fingers1_R
-    400036: Fingers2_L
-    400038: Fingers2_R
-    400040: Geometry
-    400042: Head_M
-    400044: HeadEnd_M
-    400046: Hip_L
-    400048: Hip_R
-    400050: IndexFinger1_L
-    400052: IndexFinger1_R
-    400054: IndexFinger2_L
-    400056: IndexFinger2_R
-    400058: IndexToe1_L
-    400060: IndexToe1_R
-    400062: IndexToe2_L
-    400064: IndexToe2_R
-    400066: Jaw_M
-    400068: JawEnd_M
-    400070: Knee_L
-    400072: Knee_R
-    400074: lion
-    400076: //RootNode
-    400078: Main
-    400080: MiddleFinger1_L
-    400082: MiddleFinger1_R
-    400084: MiddleFinger2_L
-    400086: MiddleFinger2_R
-    400088: MiddleToe1_L
-    400090: MiddleToe1_R
-    400092: MiddleToe2_L
-    400094: MiddleToe2_R
-    400096: Neck_M
-    400098: PinkyFinger1_L
-    400100: PinkyFinger1_R
-    400102: PinkyFinger2_L
-    400104: PinkyFinger2_R
-    400106: PinkyToe1_L
-    400108: PinkyToe1_R
-    400110: PinkyToe2_L
-    400112: PinkyToe2_R
-    400114: RingFinger1_L
-    400116: RingFinger1_R
-    400118: RingFinger2_L
-    400120: RingFinger2_R
-    400122: RingToe1_L
-    400124: RingToe1_R
-    400126: RingToe2_L
-    400128: RingToe2_R
-    400130: Root_M
-    400132: Scapula_L
-    400134: Scapula_R
-    400136: Shoulder_L
-    400138: Shoulder_R
-    400140: Spine1_M
-    400142: Tail0_M
-    400144: Tail1_M
-    400146: Tail2_M
-    400148: Tail3_M
-    400150: Tail4_M
-    400152: Tail5_M
-    400154: Tail6_M
-    400156: Toes1_L
-    400158: Toes1_R
-    400160: Toes2_L
-    400162: Toes2_R
-    400164: Wrist_L
-    400166: Wrist_R
-    2100000: lion
-    4300000: lion
-    7400000: Lion_idle breathing
-    7400002: Lion_idle to walk
-    7400004: Lion_walk
-    7400006: Lion_walk to idle
-    7400008: Lion_idle roar
-    7400010: Lion_idle to run
-    7400012: Lion_run
-    7400014: Lion_run to idle
-    7400016: Lion_attack
-    7400018: Lion_death
-    9500000: //RootNode
-    13700000: lion
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Ankle_L
+  - first:
+      1: 100002
+    second: Ankle_R
+  - first:
+      1: 100004
+    second: Chest_M
+  - first:
+      1: 100006
+    second: DeformationSystem
+  - first:
+      1: 100008
+    second: Ear1_L
+  - first:
+      1: 100010
+    second: Ear1_R
+  - first:
+      1: 100012
+    second: Ear2_L
+  - first:
+      1: 100014
+    second: Ear2_R
+  - first:
+      1: 100016
+    second: Ear3_L
+  - first:
+      1: 100018
+    second: Ear3_R
+  - first:
+      1: 100020
+    second: Elbow_L
+  - first:
+      1: 100022
+    second: Elbow_R
+  - first:
+      1: 100024
+    second: Eye_L
+  - first:
+      1: 100026
+    second: Eye_R
+  - first:
+      1: 100028
+    second: EyeEnd_L
+  - first:
+      1: 100030
+    second: EyeEnd_R
+  - first:
+      1: 100032
+    second: Fingers1_L
+  - first:
+      1: 100034
+    second: Fingers1_R
+  - first:
+      1: 100036
+    second: Fingers2_L
+  - first:
+      1: 100038
+    second: Fingers2_R
+  - first:
+      1: 100040
+    second: Geometry
+  - first:
+      1: 100042
+    second: Head_M
+  - first:
+      1: 100044
+    second: HeadEnd_M
+  - first:
+      1: 100046
+    second: Hip_L
+  - first:
+      1: 100048
+    second: Hip_R
+  - first:
+      1: 100050
+    second: IndexFinger1_L
+  - first:
+      1: 100052
+    second: IndexFinger1_R
+  - first:
+      1: 100054
+    second: IndexFinger2_L
+  - first:
+      1: 100056
+    second: IndexFinger2_R
+  - first:
+      1: 100058
+    second: IndexToe1_L
+  - first:
+      1: 100060
+    second: IndexToe1_R
+  - first:
+      1: 100062
+    second: IndexToe2_L
+  - first:
+      1: 100064
+    second: IndexToe2_R
+  - first:
+      1: 100066
+    second: Jaw_M
+  - first:
+      1: 100068
+    second: JawEnd_M
+  - first:
+      1: 100070
+    second: Knee_L
+  - first:
+      1: 100072
+    second: Knee_R
+  - first:
+      1: 100074
+    second: lion
+  - first:
+      1: 100076
+    second: //RootNode
+  - first:
+      1: 100078
+    second: Main
+  - first:
+      1: 100080
+    second: MiddleFinger1_L
+  - first:
+      1: 100082
+    second: MiddleFinger1_R
+  - first:
+      1: 100084
+    second: MiddleFinger2_L
+  - first:
+      1: 100086
+    second: MiddleFinger2_R
+  - first:
+      1: 100088
+    second: MiddleToe1_L
+  - first:
+      1: 100090
+    second: MiddleToe1_R
+  - first:
+      1: 100092
+    second: MiddleToe2_L
+  - first:
+      1: 100094
+    second: MiddleToe2_R
+  - first:
+      1: 100096
+    second: Neck_M
+  - first:
+      1: 100098
+    second: PinkyFinger1_L
+  - first:
+      1: 100100
+    second: PinkyFinger1_R
+  - first:
+      1: 100102
+    second: PinkyFinger2_L
+  - first:
+      1: 100104
+    second: PinkyFinger2_R
+  - first:
+      1: 100106
+    second: PinkyToe1_L
+  - first:
+      1: 100108
+    second: PinkyToe1_R
+  - first:
+      1: 100110
+    second: PinkyToe2_L
+  - first:
+      1: 100112
+    second: PinkyToe2_R
+  - first:
+      1: 100114
+    second: RingFinger1_L
+  - first:
+      1: 100116
+    second: RingFinger1_R
+  - first:
+      1: 100118
+    second: RingFinger2_L
+  - first:
+      1: 100120
+    second: RingFinger2_R
+  - first:
+      1: 100122
+    second: RingToe1_L
+  - first:
+      1: 100124
+    second: RingToe1_R
+  - first:
+      1: 100126
+    second: RingToe2_L
+  - first:
+      1: 100128
+    second: RingToe2_R
+  - first:
+      1: 100130
+    second: Root_M
+  - first:
+      1: 100132
+    second: Scapula_L
+  - first:
+      1: 100134
+    second: Scapula_R
+  - first:
+      1: 100136
+    second: Shoulder_L
+  - first:
+      1: 100138
+    second: Shoulder_R
+  - first:
+      1: 100140
+    second: Spine1_M
+  - first:
+      1: 100142
+    second: Tail0_M
+  - first:
+      1: 100144
+    second: Tail1_M
+  - first:
+      1: 100146
+    second: Tail2_M
+  - first:
+      1: 100148
+    second: Tail3_M
+  - first:
+      1: 100150
+    second: Tail4_M
+  - first:
+      1: 100152
+    second: Tail5_M
+  - first:
+      1: 100154
+    second: Tail6_M
+  - first:
+      1: 100156
+    second: Toes1_L
+  - first:
+      1: 100158
+    second: Toes1_R
+  - first:
+      1: 100160
+    second: Toes2_L
+  - first:
+      1: 100162
+    second: Toes2_R
+  - first:
+      1: 100164
+    second: Wrist_L
+  - first:
+      1: 100166
+    second: Wrist_R
+  - first:
+      4: 400000
+    second: Ankle_L
+  - first:
+      4: 400002
+    second: Ankle_R
+  - first:
+      4: 400004
+    second: Chest_M
+  - first:
+      4: 400006
+    second: DeformationSystem
+  - first:
+      4: 400008
+    second: Ear1_L
+  - first:
+      4: 400010
+    second: Ear1_R
+  - first:
+      4: 400012
+    second: Ear2_L
+  - first:
+      4: 400014
+    second: Ear2_R
+  - first:
+      4: 400016
+    second: Ear3_L
+  - first:
+      4: 400018
+    second: Ear3_R
+  - first:
+      4: 400020
+    second: Elbow_L
+  - first:
+      4: 400022
+    second: Elbow_R
+  - first:
+      4: 400024
+    second: Eye_L
+  - first:
+      4: 400026
+    second: Eye_R
+  - first:
+      4: 400028
+    second: EyeEnd_L
+  - first:
+      4: 400030
+    second: EyeEnd_R
+  - first:
+      4: 400032
+    second: Fingers1_L
+  - first:
+      4: 400034
+    second: Fingers1_R
+  - first:
+      4: 400036
+    second: Fingers2_L
+  - first:
+      4: 400038
+    second: Fingers2_R
+  - first:
+      4: 400040
+    second: Geometry
+  - first:
+      4: 400042
+    second: Head_M
+  - first:
+      4: 400044
+    second: HeadEnd_M
+  - first:
+      4: 400046
+    second: Hip_L
+  - first:
+      4: 400048
+    second: Hip_R
+  - first:
+      4: 400050
+    second: IndexFinger1_L
+  - first:
+      4: 400052
+    second: IndexFinger1_R
+  - first:
+      4: 400054
+    second: IndexFinger2_L
+  - first:
+      4: 400056
+    second: IndexFinger2_R
+  - first:
+      4: 400058
+    second: IndexToe1_L
+  - first:
+      4: 400060
+    second: IndexToe1_R
+  - first:
+      4: 400062
+    second: IndexToe2_L
+  - first:
+      4: 400064
+    second: IndexToe2_R
+  - first:
+      4: 400066
+    second: Jaw_M
+  - first:
+      4: 400068
+    second: JawEnd_M
+  - first:
+      4: 400070
+    second: Knee_L
+  - first:
+      4: 400072
+    second: Knee_R
+  - first:
+      4: 400074
+    second: lion
+  - first:
+      4: 400076
+    second: //RootNode
+  - first:
+      4: 400078
+    second: Main
+  - first:
+      4: 400080
+    second: MiddleFinger1_L
+  - first:
+      4: 400082
+    second: MiddleFinger1_R
+  - first:
+      4: 400084
+    second: MiddleFinger2_L
+  - first:
+      4: 400086
+    second: MiddleFinger2_R
+  - first:
+      4: 400088
+    second: MiddleToe1_L
+  - first:
+      4: 400090
+    second: MiddleToe1_R
+  - first:
+      4: 400092
+    second: MiddleToe2_L
+  - first:
+      4: 400094
+    second: MiddleToe2_R
+  - first:
+      4: 400096
+    second: Neck_M
+  - first:
+      4: 400098
+    second: PinkyFinger1_L
+  - first:
+      4: 400100
+    second: PinkyFinger1_R
+  - first:
+      4: 400102
+    second: PinkyFinger2_L
+  - first:
+      4: 400104
+    second: PinkyFinger2_R
+  - first:
+      4: 400106
+    second: PinkyToe1_L
+  - first:
+      4: 400108
+    second: PinkyToe1_R
+  - first:
+      4: 400110
+    second: PinkyToe2_L
+  - first:
+      4: 400112
+    second: PinkyToe2_R
+  - first:
+      4: 400114
+    second: RingFinger1_L
+  - first:
+      4: 400116
+    second: RingFinger1_R
+  - first:
+      4: 400118
+    second: RingFinger2_L
+  - first:
+      4: 400120
+    second: RingFinger2_R
+  - first:
+      4: 400122
+    second: RingToe1_L
+  - first:
+      4: 400124
+    second: RingToe1_R
+  - first:
+      4: 400126
+    second: RingToe2_L
+  - first:
+      4: 400128
+    second: RingToe2_R
+  - first:
+      4: 400130
+    second: Root_M
+  - first:
+      4: 400132
+    second: Scapula_L
+  - first:
+      4: 400134
+    second: Scapula_R
+  - first:
+      4: 400136
+    second: Shoulder_L
+  - first:
+      4: 400138
+    second: Shoulder_R
+  - first:
+      4: 400140
+    second: Spine1_M
+  - first:
+      4: 400142
+    second: Tail0_M
+  - first:
+      4: 400144
+    second: Tail1_M
+  - first:
+      4: 400146
+    second: Tail2_M
+  - first:
+      4: 400148
+    second: Tail3_M
+  - first:
+      4: 400150
+    second: Tail4_M
+  - first:
+      4: 400152
+    second: Tail5_M
+  - first:
+      4: 400154
+    second: Tail6_M
+  - first:
+      4: 400156
+    second: Toes1_L
+  - first:
+      4: 400158
+    second: Toes1_R
+  - first:
+      4: 400160
+    second: Toes2_L
+  - first:
+      4: 400162
+    second: Toes2_R
+  - first:
+      4: 400164
+    second: Wrist_L
+  - first:
+      4: 400166
+    second: Wrist_R
+  - first:
+      21: 2100000
+    second: lion
+  - first:
+      43: 4300000
+    second: lion
+  - first:
+      74: 7400000
+    second: Lion_idle breathing
+  - first:
+      74: 7400002
+    second: Lion_idle to walk
+  - first:
+      74: 7400004
+    second: Lion_walk
+  - first:
+      74: 7400006
+    second: Lion_walk to idle
+  - first:
+      74: 7400008
+    second: Lion_idle roar
+  - first:
+      74: 7400010
+    second: Lion_idle to run
+  - first:
+      74: 7400012
+    second: Lion_run
+  - first:
+      74: 7400014
+    second: Lion_run to idle
+  - first:
+      74: 7400016
+    second: Lion_attack
+  - first:
+      74: 7400018
+    second: Lion_death
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: lion
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -196,6 +560,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -216,6 +581,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_idle breathing
       takeName: Lion_idle breathing
+      internalID: 0
       firstFrame: 0
       lastFrame: 80
       wrapMode: 0
@@ -244,6 +610,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_idle to walk
       takeName: Lion_idle to walk
+      internalID: 0
       firstFrame: 100
       lastFrame: 116
       wrapMode: 0
@@ -272,6 +639,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_walk
       takeName: Lion_walk
+      internalID: 0
       firstFrame: 130
       lastFrame: 166
       wrapMode: 0
@@ -300,6 +668,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_walk to idle
       takeName: Lion_walk to idle
+      internalID: 0
       firstFrame: 180
       lastFrame: 196
       wrapMode: 0
@@ -328,6 +697,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_idle roar
       takeName: Lion_idle roar
+      internalID: 0
       firstFrame: 220
       lastFrame: 286
       wrapMode: 0
@@ -356,6 +726,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_idle to run
       takeName: Lion_idle to run
+      internalID: 0
       firstFrame: 310
       lastFrame: 319
       wrapMode: 0
@@ -384,6 +755,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_run
       takeName: Lion_run
+      internalID: 0
       firstFrame: 335
       lastFrame: 349
       wrapMode: 0
@@ -412,6 +784,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_run to idle
       takeName: Lion_run to idle
+      internalID: 0
       firstFrame: 360
       lastFrame: 371
       wrapMode: 0
@@ -440,6 +813,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_attack
       takeName: Lion_attack
+      internalID: 0
       firstFrame: 390
       lastFrame: 448
       wrapMode: 0
@@ -460,7 +834,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.47586203
+        functionName: OnHitEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -468,6 +849,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Lion_death
       takeName: Lion_death
+      internalID: 0
       firstFrame: 470
       lastFrame: 534
       wrapMode: 0
@@ -500,25 +882,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -527,10 +920,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -540,13 +933,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

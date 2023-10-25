@@ -1,3 +1,4 @@
+using CSCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,24 +12,20 @@ public class WeaponController : MonoBehaviour
     public float distanceMultiplier = 2f; // 거리에 따른 데미지 배율
 
     float adjustedDamage = 30f;
-
+    public AudioClip hitAudio;
+    AudioSource audioSource;
+    private HapticController hapticController;
 
     Vector3 prevPos;
 
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>(); 
+        hapticController = GetComponent<HapticController>();
     }
 
-    void Update()
-    {
-        Attack();
-    }
 
-    public void Attack()
-    {
-
-    }
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log($"{other} in");
@@ -52,7 +49,8 @@ public class WeaponController : MonoBehaviour
         if (monster != null) // Monster 컴포넌트가 있는지 확인
         {
             monster.TakeDamage(adjustedDamage, other);
-            Haptic();
+            hapticController.Haptic(transform);
+            HitCreatureEffect();
             Debug.Log("monster Entered!");
         }
         else
@@ -61,55 +59,26 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    #region Haptic
-    public void Haptic()
+    public void HitCreatureEffect()
     {
-        foreach (Transform child in transform)
+        Debug.Log("서걱");
+        if(audioSource == null)
         {
-            if (child.name.Contains("Right"))
-            {
-                VibrateRightController(0.3f, 0.2f);
-                break;
-            }
-            else if (child.name.Contains("Left"))
-            {
-                VibrateLeftController(0.3f, 0.2f);
-                break;
-            }
+            Debug.Log("audioSource is null");
         }
-    }
-
-    public void VibrateRightController(float strength, float duration)
-    {
-        // 오른쪽 컨트롤러를 찾는다.
-        UnityEngine.XR.InputDevice device = GetDeviceByCharacteristics(InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller);
-        if (device.isValid)
+        if (hitAudio == null)
         {
-            device.SendHapticImpulse(0, strength, duration);
+            Debug.Log("hitAudio is null");
         }
-    }
-
-    public void VibrateLeftController(float strength, float duration)
-    {
-        // 왼쪽 컨트롤러를 찾는다.
-        UnityEngine.XR.InputDevice device = GetDeviceByCharacteristics(InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller);
-        if (device.isValid)
+        Debug.Log("audioSource volume: " + audioSource.volume);
+        if (audioSource.mute)
         {
-            device.SendHapticImpulse(0, strength, duration);
+            Debug.Log("audioSource is muted");
         }
+        Debug.Log("audioSource Spatial Blend: " + audioSource.spatialBlend);
+        Debug.Log("hitAudio length: " + hitAudio.length);
+        audioSource.pitch = 1.5f;
+        audioSource.clip = hitAudio;
+        audioSource.Play();
     }
-    private UnityEngine.XR.InputDevice GetDeviceByCharacteristics(InputDeviceCharacteristics characteristics)
-    {
-        List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
-        InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
-
-        if (devices.Count > 0)
-        {
-            return devices[0];  // 첫 번째 디바이스를 반환. 일반적으로 하나의 컨트롤러만 연결되어 있을 것이다.
-        }
-
-        return new UnityEngine.XR.InputDevice();  // 유효하지 않은 디바이스를 반환
-    }
-    #endregion
-
 }

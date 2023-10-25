@@ -1,14 +1,24 @@
+using ExitGames.Client.Photon;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using static Unity.Burst.Intrinsics.X86;
 
-public class Monster : MonoBehaviour
+public class Monster : CreatureController
 {
     public Transform target;
-
+    [SerializeField]
     public float _hp = 100;
-    public float chaseDistance = 10f;
+    [SerializeField]
+    float _scanRange = 10f;
+    [SerializeField]
+    float _attackRange = 2f;
+
+    [SerializeField]
+    float moveSpeed = 5f;
+
 
 
     CapsuleCollider bodyCol;
@@ -18,43 +28,84 @@ public class Monster : MonoBehaviour
     bool isDead = false;
     NavMeshAgent agent;
 
-    public AudioClip hitAudio;
+    //public AudioClip hitAudio;
     AudioSource audioSource;
     ParticleSystem hitPaticle;
+
+   
 
     void Start()
     {
         bodyCol = GetComponentInChildren<CapsuleCollider>();
         headCol = GetComponentInChildren<SphereCollider>();
-        anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         hitPaticle = GetComponent<ParticleSystem>();
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void Update()
+    protected override void UpdateIdle()
     {
-        ChaseTarget();
+        if (target == null)
+            return;
+
+        float distance = (target.transform.position - transform.position).magnitude;
+        if (distance < _scanRange)
+        {
+            state = State.Moving;
+            return;
+        }
     }
 
-    public void ChaseTarget()
+    protected override void UpdateMoving()
     {
         if (target == null) return;
 
-        float distance = (target.position - transform.position).magnitude;
-
-        if (_hp > 0 && !isDamaged && distance> chaseDistance)
+        _destPos = target.position;
+        float distance = (_destPos - transform.position).magnitude;
+        if (distance <=_attackRange)
         {
-            agent.destination = target.position;
-            anim.SetBool("isRunning", true);
+            agent.SetDestination(transform.position);
+            state = State.Attack;
+            return;
         }
 
+        //ÀÌµ¿
+        Vector3 dir = _destPos - transform.position;
+        if (dir.magnitude < 0.1f)
+        {
+            state = State.Idle;
+        }
+        else
+        {
+            agent.SetDestination(_destPos);
+            agent.speed = moveSpeed;
+            agent.acceleration = moveSpeed * 2f;
+            agent.angularSpeed = 300f;
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
+        }
     }
 
-    public void Attack()
+    protected override void UpdateAttack()
+    {
+        Vector3 dir = target.position - transform.position;
+        Quaternion quat = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
+
+    }
+
+    public void OnHitEvent()
     {
 
+        float distance = (target.position - transform.position).magnitude;
+        if (distance <= _attackRange)
+            state = State.Attack;
+        else
+            state = State.Moving;
+
+
     }
+
 
     #region Hit
     public void SetDamageFlag()
@@ -88,7 +139,7 @@ public class Monster : MonoBehaviour
     {
         if (!isDead)
         {
-            anim.SetTrigger("isDead");
+            state= State.Die;
             isDead = true;
         }
         
@@ -96,8 +147,6 @@ public class Monster : MonoBehaviour
 
     public void HitEffect()
     {
-        audioSource.pitch = 1.5f;
-        audioSource.PlayOneShot(hitAudio);
         hitPaticle.Play();
     }
 
@@ -107,5 +156,6 @@ public class Monster : MonoBehaviour
         hitBox.enabled = true;
         ResetDamageFlag();
     }
+
     #endregion
 }
