@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     public Transform target;
-    
+
     public float _hp = 100;
+    public float chaseDistance = 10f;
+
+
     CapsuleCollider bodyCol;
     SphereCollider headCol;
     Animator anim;
@@ -38,12 +41,19 @@ public class Monster : MonoBehaviour
     {
         if (target == null) return;
 
-        if (_hp > 0 && !isDamaged)
+        float distance = (target.position - transform.position).magnitude;
+
+        if (_hp > 0 && !isDamaged && distance> chaseDistance)
         {
             agent.destination = target.position;
             anim.SetBool("isRunning", true);
         }
-        
+
+    }
+
+    public void Attack()
+    {
+
     }
 
     #region Hit
@@ -86,7 +96,7 @@ public class Monster : MonoBehaviour
 
     public void HitEffect()
     {
-        audioSource.pitch = 1.3f;
+        audioSource.pitch = 1.5f;
         audioSource.PlayOneShot(hitAudio);
         hitPaticle.Play();
     }
