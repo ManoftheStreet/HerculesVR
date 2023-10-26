@@ -8,16 +8,16 @@ using static Unity.Burst.Intrinsics.X86;
 
 public class Monster : CreatureController
 {
-    public Transform target;
+    public GameObject target;
     [SerializeField]
     public float _hp = 100;
     [SerializeField]
     float _scanRange = 10f;
     [SerializeField]
-    float _attackRange = 2f;
+    float _attackRange = 5f;
 
     [SerializeField]
-    float moveSpeed = 5f;
+    float moveSpeed = 10f;
 
 
 
@@ -51,6 +51,8 @@ public class Monster : CreatureController
         float distance = (target.transform.position - transform.position).magnitude;
         if (distance < _scanRange)
         {
+            _lockTarget = target;
+            Debug.Log($" {_lockTarget.name} in Idle");
             state = State.Moving;
             return;
         }
@@ -58,16 +60,20 @@ public class Monster : CreatureController
 
     protected override void UpdateMoving()
     {
-        if (target == null) return;
-
-        _destPos = target.position;
-        float distance = (_destPos - transform.position).magnitude;
-        if (distance <=_attackRange)
+        if (_lockTarget != null)
         {
-            agent.SetDestination(transform.position);
-            state = State.Attack;
-            return;
+            Debug.Log($" {_lockTarget.name} in Moving");
+            _destPos = _lockTarget.transform.position; 
+            Debug.Log($" {_lockTarget.name} after 64");
+            float distance = (_destPos - transform.position).magnitude;
+            if (distance <= _attackRange)
+            {
+                agent.SetDestination(transform.position);
+                state = State.Attack;
+                return;
+            }
         }
+
 
         //이동
         Vector3 dir = _destPos - transform.position;
@@ -88,22 +94,32 @@ public class Monster : CreatureController
 
     protected override void UpdateAttack()
     {
-        Vector3 dir = target.position - transform.position;
+        if(_lockTarget == null) return;
+
+        Vector3 dir = _lockTarget.transform.position - transform.position;
         Quaternion quat = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
-
     }
 
     public void OnHitEvent()
     {
-
-        float distance = (target.position - transform.position).magnitude;
-        if (distance <= _attackRange)
-            state = State.Attack;
+        if (_lockTarget == null)
+        {
+            state = State.Idle;
+        }
         else
-            state = State.Moving;
+        {
+            float distance = (_lockTarget.transform.position - transform.position).magnitude;
+            if (distance <= _attackRange)
+            {
+                state = State.Attack;
+            }
 
-
+            else
+            {
+                state = State.Moving;
+            }
+        }
     }
 
 
@@ -125,24 +141,21 @@ public class Monster : CreatureController
         HitEffect();
         Debug.Log($"남은체력{_hp}");
 
-        if (_hp <= 0)
+        if (_hp <= 0 && !isDead)
         {
-            Die();
+            state = State.Die;
         }
+
+
         SetDamageFlag();
         hitBox.enabled = false;
         StartCoroutine(ResetDamageFlagCoroutine(hitBox));
 
     }
 
-    public void Die()
+    protected override void UpdateDie()
     {
-        if (!isDead)
-        {
-            state= State.Die;
-            isDead = true;
-        }
-        
+ 
     }
 
     public void HitEffect()

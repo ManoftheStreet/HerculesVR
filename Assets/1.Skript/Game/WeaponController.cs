@@ -66,19 +66,8 @@ public class WeaponController : MonoBehaviour
         {
             Debug.Log("audioSource is null");
         }
-        if (hitAudio == null)
-        {
-            Debug.Log("hitAudio is null");
-        }
-        Debug.Log("audioSource volume: " + audioSource.volume);
-        if (audioSource.mute)
-        {
-            Debug.Log("audioSource is muted");
-        }
-        Debug.Log("audioSource Spatial Blend: " + audioSource.spatialBlend);
-        Debug.Log("hitAudio length: " + hitAudio.length);
+
         audioSource.pitch = 1.5f;
-        audioSource.clip = hitAudio;
-        audioSource.Play();
+        audioSource.PlayOneShot(hitAudio);
     }
 }
