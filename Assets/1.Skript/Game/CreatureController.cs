@@ -1,92 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public abstract class CreatureController : MonoBehaviour
+public class CreatureController : MonoBehaviour
 {
-
-    [SerializeField]
-    protected Vector3 _destPos;
-
-    [SerializeField]
-    protected State _state = State.Idle;
-
-    [SerializeField]
-    protected GameObject _lockTarget;
-
     public enum State
     {
         Idle,
-        Moving,
-        Attack,
-        Damaged,
-        Die,
+        Patrol,
+        Tracking,
+        AttackBegin,
+        Attacking,
+        Hit,
+        Dead,
     }
 
-    public virtual State state
+    public float startingHealth = 100f; // ���� ü��
+    public float health { get; protected set; } // ���� ü��
+    public bool dead { get; protected set; } // ��� ����
+
+    public event Action OnDeath; // ����� �ߵ��� �̺�Ʈ
+    public CreatureController PlayertargetEntity; // ������ ���
+    public AudioClip footStepClip;
+    private const float minTimeBetDamaged = 0.1f;
+    private float lastDamagedTime;
+    protected bool IsInvulnerable
     {
-        get { return _state; }
-        set
+        get
         {
-            _state = value;
+            if (Time.time >= lastDamagedTime + minTimeBetDamaged) return false;
 
-            Animator anim = GetComponent<Animator>();
-            switch (_state)
-            {
-                case State.Die:
-                    anim.CrossFade("Death", 0.1f);
-                    break;
-                case State.Idle:
-                    anim.CrossFade("Idle", 0.1f);
-                    break;
-                case State.Moving:
-                    anim.CrossFade("Run", 0.05f);
-
-                    break;
-                case State.Attack:
-                    anim.CrossFade("Attack", 0.05f, -1, 0);
-                    break;
-                case State.Damaged:
-                    
-                    break;
-
-            }
+            return true;
         }
     }
 
-    private void Start()
+    // ����ü�� Ȱ��ȭ�ɶ� ���¸� ����
+    protected virtual void OnEnable()
     {
-        //Init();
+        // ������� ���� ���·� ����
+        dead = false;
+        // ü���� ���� ü������ �ʱ�ȭ
+        health = startingHealth;
     }
 
-    public void Update()
+    // �������� �Դ� ���
+    public virtual bool ApplyDamage(DamageMessage damageMessage)
     {
-        switch (state)
-        {
-            case State.Die:
-                UpdateDie();
-                break;
+        if (IsInvulnerable || damageMessage.damager == gameObject || dead) return false;
 
-            case State.Moving:
-                UpdateMoving();
-                break;
+        lastDamagedTime = Time.time;
 
-            case State.Idle:
-                UpdateIdle();
-                break;
-            case State.Attack:
-                UpdateAttack();
-                break;
-            case State.Damaged:
-                UpdateDamaged();
-                break;
-        }
+        // ��������ŭ ü�� ����
+        health -= damageMessage.amount;
+
+        // ü���� 0 ���� && ���� ���� �ʾҴٸ� ��� ó�� ����
+        if (health <= 0) Die();
+
+        return true;
     }
 
-    //public abstract void Init();
-    protected virtual void UpdateDie() { }
-    protected virtual void UpdateMoving() { }
-    protected virtual void UpdateIdle() { }
-    protected virtual void UpdateAttack() { }
-    protected virtual void UpdateDamaged() { }
+    // ü���� ȸ���ϴ� ���
+    public virtual void RestoreHealth(float newHealth)
+    {
+        if (dead) return;
+
+        // ü�� �߰�
+        health += newHealth;
+    }
+
+    // ��� ó��
+    public virtual void Die()
+    {
+        // onDeath �̺�Ʈ�� ��ϵ� �޼��尡 �ִٸ� ����
+        if (OnDeath != null) OnDeath();
+
+        // ��� ���¸� ������ ����
+        dead = true;
+    }
 }
