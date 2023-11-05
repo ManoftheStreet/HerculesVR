@@ -18,6 +18,11 @@ public class LowerBodyAnimation : MonoBehaviour
     [SerializeField] private Vector3 raycastLeftOffset;
     [SerializeField] private Vector3 raycastRightOffset;
 
+    public void Start()
+    {
+        
+    }
+
     private void OnAnimatorIK(int layerIndex)
     {
         Vector3 leftFootPosition = animator.GetIKPosition(AvatarIKGoal.LeftFoot);

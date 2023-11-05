@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 [System.Serializable]
 public class MapTransforms
@@ -19,7 +18,7 @@ public class MapTransforms
     }
 }
 
-public class AvatarController : MonoBehaviourPunCallbacks
+public class AvatarController : MonoBehaviour
 {
     [SerializeField] private MapTransforms head;
     [SerializeField] private MapTransforms leftHand;
