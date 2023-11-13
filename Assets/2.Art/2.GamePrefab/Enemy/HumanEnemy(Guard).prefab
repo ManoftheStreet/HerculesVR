@@ -2548,7 +2548,7 @@ MonoBehaviour:
   footStepClip: {fileID: 8300000, guid: 8f082907b3612c540b163e5ef0e15950, type: 3}
   attackRoot: {fileID: 2249875544316139783}
   eyeTransform: {fileID: 1931347321129056020}
-  attackRange: 1.2
+  attackRange: 2
   hitClip: {fileID: 8300000, guid: fc403ac911e7a51468c864c05a1d6859, type: 3}
   deathClip: {fileID: 8300000, guid: e482b557fdfb72543a8c951f6cd0fbf8, type: 3}
   shieldClip: {fileID: 8300000, guid: 8d30caa660ee4d043b9819212b5a01f8, type: 3}
@@ -2563,10 +2563,10 @@ MonoBehaviour:
   patrolSpeed: 3
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   shieldLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!1 &3774863766766652613
 GameObject:
   m_ObjectHideFlags: 0

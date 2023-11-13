@@ -15,6 +15,7 @@ public class StickingArrowToSurface : MonoBehaviour
     public Transform attackRoot;
     public float WeaponLenth;
     public float damage;
+    float ajustDamage;
 
     public AudioClip hitAudio;
     AudioSource audioSource;
@@ -26,10 +27,13 @@ public class StickingArrowToSurface : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        ajustDamage = damage * rb.velocity.magnitude;
+        Debug.Log(ajustDamage);
         rb.isKinematic = true;
         myCollider.isTrigger = true;
-
+        
         GameObject arrow = Instantiate(stickingArrow);
+        Debug.Log(collision.gameObject.name);
         arrow.transform.position = transform.position;
         arrow.transform.forward = transform.forward;
         Manager.Haptic.VibrateBothControllers(HapticController.objectStrength, HapticController.objectDuration);
@@ -42,7 +46,7 @@ public class StickingArrowToSurface : MonoBehaviour
             if (attackTargetEntity != null)
             {
                 var message = new DamageMessage();
-                message.amount = damage;
+                message.amount = ajustDamage;
                 message.damager = gameObject;
                 message.hitPoint = collision.contacts[0].point;
                 message.hitNormal = attackRoot.TransformDirection(collision.contacts[0].normal);

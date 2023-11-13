@@ -33,6 +33,7 @@ public class Opening : MonoBehaviour
         {
             FadeIn();
         }
+        Invoke("Disapear", 7.0f);
     }
 
     private IEnumerator ShowTextsAndFadeIn()
@@ -116,5 +117,10 @@ public class Opening : MonoBehaviour
             newColor2.a = alphaOut;
             rend.material.SetColor("_Color", newColor2);
         }
+    }
+
+    void Disapear()
+    {
+        this.gameObject.SetActive(false);
     }
 }

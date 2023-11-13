@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4211988456722935866}
   - component: {fileID: 2638678694783495515}
   - component: {fileID: 1918996417309383662}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2410271734309294575}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0, y: 0.317, z: -0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &2132184384387990768
 MeshFilter:

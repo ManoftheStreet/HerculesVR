@@ -7,6 +7,8 @@ TagManager:
   - Monster
   - LeftHand
   - RightHand
+  - Arrow
+  - EndCube
   layers:
   - Default
   - TransparentFX
@@ -14,13 +16,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Mybody
+  - XRRig
   - Teleport
   - Interatable
   - Monster
   - Player
-  - 
-  - 
+  - Shield
+  - Arrow
   - 
   - 
   - 
